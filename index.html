@@ -333,8 +333,9 @@
         }
         
         .play-btn {
-            width: 40px;
-            height: 40px;
+          margin-left: 10px;
+            width: 30px;
+            height: 30px;
             background: var(--primary-color);
             color: white;
             border-radius: 50%;
@@ -349,6 +350,54 @@
             background: var(--secondary-color);
             transform: scale(1.1);
         }
+        
+        .seek-bar {
+    flex: 1;
+    margin: 0 10px;
+    height: 6px;
+    border-radius: 5px;
+    background: #ddd;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+/* Chrome, Safari, Edge */
+.seek-bar::-webkit-slider-thumb {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: none;
+    margin-top: -4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.seek-bar::-webkit-slider-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Firefox */
+.seek-bar::-moz-range-thumb {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: none;
+}
+
+.seek-bar::-moz-range-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Optional: Style when playing */
+.music-player.playing .seek-bar::-webkit-slider-thumb {
+    background: var(--accent-color);
+}
         
         /* Video Section */
         .video {
@@ -853,6 +902,7 @@
             }
         }
     </style>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -939,71 +989,86 @@
     </section>
 
     <!-- Music Section -->
-    <section class="section music" id="music">
-        <div class="container">
-            <h2 class="section-title">My Music</h2>
-            <div class="music-grid">
-                <div class="music-card">
-                    <div class="music-img">
-                        <img src="images/Ijaw boy.jpg" alt="Album 1">
-                    </div>
-                    <div class="music-info">
-                        <h3>Ijaw Boy</h3>
-                        <p>Latest single release - 2025</p>
-                        <div class="music-player">
-                            <audio id="song1" src="songs/BL4MELESS_ Ijaw Boy (Prod. Apex).wav"></audio>
-                            <span>3:45</span>
-                            <div class="play-btn" onclick="togglePlay('song1', this)">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
+<section class="section music" id="music">
+    <div class="container">
+        <h2 class="section-title">My Music</h2>
+        <div class="music-grid">
+
+            <!-- Song 1 -->
+            <div class="music-card">
+                <div class="music-img">
+                    <img src="images/Ijaw boy.jpg" alt="Album 1">
                 </div>
-                <div class="music-card">
-                    <div class="music-img">
-                        <img src="images/Na you.jpg " alt="Album 2">
-                    </div>
-                    <div class="music-info">
-                        <h3>Na You</h3>
-                        <p><i>Coming Soon...</i></p>
-                        <div class="music-player">
-                            <audio id="song2" src="songs/na you.mp3"></audio>
-                            <span>4:12</span>
-                            <div class="play-btn" onclick="togglePlay('song2', this)">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="music-card">
-                    <div class="music-img">
-                        <img src="images/money.jpg" alt="Album 3">
-                    </div>
-                    <div class="music-info">
-                        <h3>Money</h3>
-                        <p><i>Coming Soon...</i></p>
-                        <div class="music-player">
-                            <audio id="song3" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
-                            <span>3:28</span>
-                            <div class="play-btn" onclick="togglePlay('song3', this)">
-                                <i class="fas fa-play"></i>
-                            </div>
+                <div class="music-info">
+                    <h3>Ijaw Boy</h3>
+                    <p>Latest single release - 2025</p>
+                    <div class="music-player">
+                        <audio id="song1" src="songs/BL4MELESS_Ijaw_Boy_Prod_Apex.mp3"></audio>
+                        <input type="range" id="seek1" value="0" min="0" max="100" class="seek-bar">
+                        <span>2:57</span>
+                        <div class="play-btn" onclick="togglePlay('song1', this)">
+                            <i class="fas fa-play"></i>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Song 2 -->
+            <div class="music-card">
+                <div class="music-img">
+                    <img src="images/Na you.jpg " alt="Album 2">
+                </div>
+                <div class="music-info">
+                    <h3>Na You</h3>
+                    <p><i>Coming Soon...</i></p>
+                    <div class="music-player">
+                        <audio id="song2" src="songs/na you.mp3"></audio>
+                        <input type="range" id="seek2" value="0" min="0" max="100" class="seek-bar">
+                        <span>0:00</span>
+                        <div class="play-btn" onclick="togglePlay('song2', this)">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Song 3 -->
+            <div class="music-card">
+                <div class="music-img">
+                    <img src="images/money.jpg" alt="Album 3">
+                </div>
+                <div class="music-info">
+                    <h3>Money</h3>
+                    <p><i>Coming Soon...</i></p>
+                    <div class="music-player">
+                        <audio id="song3" src="songs/money.mp3"></audio>
+                        <input type="range" id="seek3" value="0" min="0" max="100" class="seek-bar">
+                        <span>0:00</span>
+                        <div class="play-btn" onclick="togglePlay('song3', this)">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Video Section -->
-    <section class="section video" id="videos">
-        <div class="container">
-            <h2 class="section-title">Latest Video</h2>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+<section class="section video" id="videos">
+    <div class="container">
+        <h2 class="section-title">Latest Video</h2>
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/vwdLq7nXdhg" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
         </div>
-    </section>
+    </div>
+</section>
     
     <!-- Music Streaming Section -->
 <section class="section streaming" id="streaming">
@@ -1254,25 +1319,28 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                    <form action="https://formsubmit.co/blameless372@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="Thanks for reaching out! I will reply shortly.">
+    
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" required>
+    </div>
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit" class="btn">Send Message</button>
+</form>
                 </div>
             </div>
         </div>
@@ -1367,35 +1435,39 @@
         });
         
         // Music Player Functionality
-        function togglePlay(songId, button) {
-            const audio = document.getElementById(songId);
-            const icon = button.querySelector('i');
-            
-            if (audio.paused) {
-                // Pause all other audio elements
-                document.querySelectorAll('audio').forEach(a => {
-                    if (a.id !== songId) {
-                        a.pause();
-                        a.previousElementSibling.querySelector('i').className = 'fas fa-play';
-                    }
-                });
-                
-                audio.play();
-                icon.className = 'fas fa-pause';
-            } else {
-                audio.pause();
-                icon.className = 'fas fa-play';
+        function togglePlay(audioId, btn) {
+    const audio = document.getElementById(audioId);
+    const icon = btn.querySelector('i');
+
+    if (audio.paused) {
+        // Pause all other audio elements
+        document.querySelectorAll('audio').forEach(a => {
+            if (a.id !== audioId) {
+                a.pause();
+                const otherIcon = a.parentElement.querySelector('.play-btn i');
+                if (otherIcon) {
+                    otherIcon.className = 'fas fa-play';
+                }
             }
-        }
-        
-        // Update play buttons when song ends
-        document.querySelectorAll('audio').forEach(audio => {
-            audio.addEventListener('ended', function() {
-                const button = this.nextElementSibling;
-                const icon = button.querySelector('i');
-                icon.className = 'fas fa-play';
-            });
         });
+
+        audio.play();
+        icon.className = 'fas fa-pause';
+    } else {
+        audio.pause();
+        icon.className = 'fas fa-play';
+    }
+}
+
+// Update play buttons when song ends
+document.querySelectorAll('audio').forEach(audio => {
+    audio.addEventListener('ended', function () {
+        const icon = this.parentElement.querySelector('.play-btn i');
+        if (icon) {
+            icon.className = 'fas fa-play';
+        }
+    });
+});
         
         // Contact Form Submission
         const contactForm = document.getElementById('contactForm');
@@ -1458,5 +1530,37 @@
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Setup seek bar for each song
+    const songs = [
+        { audioId: 'song1', seekId: 'seek1' },
+        { audioId: 'song2', seekId: 'seek2' },
+        { audioId: 'song3', seekId: 'seek3' },
+    ];
+
+    songs.forEach(({ audioId, seekId }) => {
+        const audio = document.getElementById(audioId);
+        const seekBar = document.getElementById(seekId);
+
+        // Update seek bar as audio plays
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                seekBar.value = (audio.currentTime / audio.duration) * 100;
+            }
+        });
+
+        // Seek when user drags input
+        seekBar.addEventListener('input', () => {
+            audio.currentTime = (seekBar.value / 100) * audio.duration;
+        });
+
+        // Reset seek bar when song ends
+        audio.addEventListener('ended', () => {
+            seekBar.value = 0;
+        });
+    });
+});
+</script>
 </body>
 </html>

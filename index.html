@@ -297,7 +297,7 @@
         }
         
         .music-img {
-            height: 200px;
+            height: 250px;
             overflow: hidden;
         }
         
@@ -325,7 +325,93 @@
             color: #666;
             margin-bottom: 15px;
         }
-        
+
+        .download-btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .download-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .download-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .download-btn.disabled:hover {
+            background: #ccc;
+        }
+
+        .coming-soon {
+            background: white;
+        }
+
+        .coming-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .coming-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .coming-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .coming-img {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .coming-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .coming-card:hover .coming-img img {
+            transform: scale(1.05);
+        }
+
+        .coming-info {
+            padding: 20px;
+        }
+
+        .coming-info h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .coming-badge {
+            display: inline-block;
+            background: #ffd54f;
+            color: #3e2723;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .coming-btns {
+            margin-top: 20px;
+        }
+
         .music-player {
             display: flex;
             align-items: center;
@@ -917,6 +1003,7 @@
                 <ul id="nav-menu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#coming-soon">Coming Soon</a></li>
                     <li><a href="#music">Music</a></li>
                     <li><a href="#videos">Videos</a></li>
                     <li><a href="#streaming">Streams</a></li>
@@ -988,16 +1075,53 @@
         </div>
     </section>
 
+    <!-- Coming Soon Section -->
+    <section class="section coming-soon" id="coming-soon">
+        <div class="container">
+            <h2 class="section-title">Coming Soon</h2>
+            <p class="section-subtitle">Upcoming tracks that will appear in My Music as soon as they are released.</p>
+            <div class="coming-grid">
+                <div class="coming-card">
+                    <div class="coming-img">
+                        <img src="images/force-man.jpg" alt="Force Man">
+                    </div>
+                    <div class="coming-info">
+                        <h3>Force Man</h3>
+                        <span class="coming-badge">Releasing Soon</span>
+                        <p>“E Don Tire Soldier” is for every hustler out there, because every hustler is a soldier. Most of the things we were taught about life are not always true; many times, they are only a mere glimpse of the battles we will eventually face. But nevertheless… e don tire soldier.</p>
+                        <div class="coming-btns">
+                            <audio id="preview-force-man" src="songs/Force Man By Bl4ameless.mp3"></audio>
+                            <button class="btn btn-outline" onclick="togglePreview('preview-force-man', this)">Play Preview</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="coming-card">
+                    <div class="coming-img">
+                        <img src="images/Next Drop.png" alt="Next Drop">
+                    </div>
+                    <div class="coming-info">
+                        <h3>More Music Coming......</h3>
+                        <span class="coming-badge">Release Alerts</span>
+                        <p>New sounds are being created behind the scenes. More official BL4MELESS releases, collaborations, and surprise drops will appear here soon. Stay connected and be the first to know when the next track lands.</p>
+                        <div class="coming-btns">
+                            <a href="#contact" class="btn btn-outline">Join Release Alert</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Music Section -->
 <section class="section music" id="music">
     <div class="container">
         <h2 class="section-title">My Music</h2>
         <div class="music-grid">
 
-            <!-- Song 1 -->
+            <!-- Song 1: Ijaw Boy -->
             <div class="music-card">
                 <div class="music-img">
-                    <img src="images/Ijaw boy.jpg" alt="Album 1">
+                    <img src="images/Ijaw boy.jpg" alt="Ijaw Boy">
                 </div>
                 <div class="music-info">
                     <h3>Ijaw Boy</h3>
@@ -1010,36 +1134,38 @@
                             <i class="fas fa-play"></i>
                         </div>
                     </div>
+                    <a href="songs/BL4MELESS_Ijaw_Boy_Prod_Apex.mp3" download class="download-btn">Download Song</a>
                 </div>
             </div>
 
-            <!-- Song 2 -->
+            <!-- Song 2: Na You -->
             <div class="music-card">
                 <div class="music-img">
-                    <img src="images/Na you.jpg " alt="Album 2">
+                    <img src="images/Na you.jpg" alt="Na You">
                 </div>
                 <div class="music-info">
                     <h3>Na You</h3>
-                    <p><i>Coming Soon...</i></p>
+                    <p>Released 2025</p>
                     <div class="music-player">
-                        <audio id="song2" src="songs/na you.mp3"></audio>
+                        <audio id="song2" src="songs/na-you.mp3"></audio>
                         <input type="range" id="seek2" value="0" min="0" max="100" class="seek-bar">
                         <span>0:00</span>
                         <div class="play-btn" onclick="togglePlay('song2', this)">
                             <i class="fas fa-play"></i>
                         </div>
                     </div>
+                    <a href="songs/na-you.mp3" download class="download-btn">Download Song</a>
                 </div>
             </div>
 
-            <!-- Song 3 -->
+            <!-- Song 3: Money -->
             <div class="music-card">
                 <div class="music-img">
-                    <img src="images/money.jpg" alt="Album 3">
+                    <img src="images/money.jpg" alt="Money">
                 </div>
                 <div class="music-info">
                     <h3>Money</h3>
-                    <p><i>Coming Soon...</i></p>
+                    <p>Released 2025</p>
                     <div class="music-player">
                         <audio id="song3" src="songs/money.mp3"></audio>
                         <input type="range" id="seek3" value="0" min="0" max="100" class="seek-bar">
@@ -1048,6 +1174,7 @@
                             <i class="fas fa-play"></i>
                         </div>
                     </div>
+                    <a href="songs/money.mp3" download class="download-btn">Download Song</a>
                 </div>
             </div>
 
@@ -1240,6 +1367,12 @@
             <h2 class="section-title">Gallery</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
+                    <img src="images/force-man.jpg" alt="Gallery 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
                     <img src="images/Ijaw boy.jpg" alt="Gallery 1">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
@@ -1258,13 +1391,19 @@
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/gallery 4.jpg" alt="Gallery 4">
+                    <img src="images/Next Drop.png" alt="Gallery 1">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/Gallery 5.jpg" alt="Gallery 5">
+                    <img src="images/Money.jpg" alt="Gallery 4">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Na you.jpg" alt="Gallery 5">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
@@ -1319,7 +1458,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form action="https://formsubmit.co/blameless372@gmail.com" method="POST">
+                    <form id="contactForm" action="https://formsubmit.co/blameless372@gmail.com" method="POST">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_next" value="Thanks for reaching out! I will reply shortly.">
     
@@ -1529,33 +1668,63 @@ document.querySelectorAll('audio').forEach(audio => {
         
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+        
+        // Preview Player Functionality
+        function togglePreview(audioId, btn) {
+    const audio = document.getElementById(audioId);
+    
+    if (audio.paused) {
+        // Pause all other previews
+        document.querySelectorAll('[id^="preview-"]').forEach(a => {
+            if (a.id !== audioId) {
+                a.pause();
+                const otherBtn = a.parentElement.querySelector('button');
+                if (otherBtn) {
+                    otherBtn.textContent = 'Play Preview';
+                }
+            }
+        });
+        
+        audio.play();
+        btn.textContent = 'Pause Preview';
+    } else {
+        audio.pause();
+        btn.textContent = 'Play Preview';
+    }
+}
+
+// Reset preview buttons when audio ends
+document.querySelectorAll('[id^="preview-"]').forEach(audio => {
+    audio.addEventListener('ended', function () {
+        const btn = this.parentElement.querySelector('button');
+        if (btn) {
+            btn.textContent = 'Play Preview';
+        }
+    });
+});
     </script>
     <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Setup seek bar for each song
-    const songs = [
-        { audioId: 'song1', seekId: 'seek1' },
-        { audioId: 'song2', seekId: 'seek2' },
-        { audioId: 'song3', seekId: 'seek3' },
-    ];
+    document.querySelectorAll('.music-player').forEach(player => {
+        const audio = player.querySelector('audio');
+        const seekBar = player.querySelector('.seek-bar');
 
-    songs.forEach(({ audioId, seekId }) => {
-        const audio = document.getElementById(audioId);
-        const seekBar = document.getElementById(seekId);
+        if (!audio || !seekBar) {
+            return;
+        }
 
-        // Update seek bar as audio plays
         audio.addEventListener('timeupdate', () => {
             if (audio.duration) {
                 seekBar.value = (audio.currentTime / audio.duration) * 100;
             }
         });
 
-        // Seek when user drags input
         seekBar.addEventListener('input', () => {
-            audio.currentTime = (seekBar.value / 100) * audio.duration;
+            if (audio.duration) {
+                audio.currentTime = (seekBar.value / 100) * audio.duration;
+            }
         });
 
-        // Reset seek bar when song ends
         audio.addEventListener('ended', () => {
             seekBar.value = 0;
         });

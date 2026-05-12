@@ -308,6 +308,10 @@
             transition: transform 0.5s ease;
         }
         
+        .music-card.relatable .music-img img {
+            transform: scale(1.06);
+        }
+        
         .music-card:hover .music-img img {
             transform: scale(1.1);
         }
@@ -1083,7 +1087,7 @@
             <div class="coming-grid">
                 <div class="coming-card">
                     <div class="coming-img">
-                        <img src="images/force-man.jpg" alt="Force Man">
+                        <img src="images/force-man.png" alt="Force Man">
                     </div>
                     <div class="coming-info">
                         <h3>Force Man</h3>
@@ -1118,7 +1122,27 @@
         <h2 class="section-title">My Music</h2>
         <div class="music-grid">
 
-            <!-- Song 1: Ijaw Boy -->
+            <!-- Song 1: RELATBLE -->
+            <div class="music-card relatable">
+                <div class="music-img">
+                    <img src="images/relatable.png" alt="RELATBLE">
+                </div>
+                <div class="music-info">
+                    <h3>RELATBLE</h3>
+                    <p>Released 2026</p>
+                    <div class="music-player">
+                        <audio id="song4" src="songs/RELATABLE.mp3"></audio>
+                        <input type="range" id="seek4" value="0" min="0" max="100" class="seek-bar">
+                        <span>0:00</span>
+                        <div class="play-btn" onclick="togglePlay('song4', this)">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <a href="songs/RELATABLE.mp3" download class="download-btn">Download Song</a>
+                </div>
+            </div>
+
+            <!-- Song 2: Ijaw Boy -->
             <div class="music-card">
                 <div class="music-img">
                     <img src="images/Ijaw boy.jpg" alt="Ijaw Boy">
@@ -1138,7 +1162,7 @@
                 </div>
             </div>
 
-            <!-- Song 2: Na You -->
+            <!-- Song 3: Na You -->
             <div class="music-card">
                 <div class="music-img">
                     <img src="images/Na you.jpg" alt="Na You">
@@ -1158,7 +1182,7 @@
                 </div>
             </div>
 
-            <!-- Song 3: Money -->
+            <!-- Song 4: Money -->
             <div class="music-card">
                 <div class="music-img">
                     <img src="images/money.jpg" alt="Money">
@@ -1177,6 +1201,7 @@
                     <a href="songs/money.mp3" download class="download-btn">Download Song</a>
                 </div>
             </div>
+
 
         </div>
     </div>
@@ -1367,7 +1392,7 @@
             <h2 class="section-title">Gallery</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="images/force-man.jpg" alt="Gallery 1">
+                    <img src="images/force-man.png" alt="Gallery 1">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>

@@ -1087,20 +1087,6 @@
             <div class="coming-grid">
                 <div class="coming-card">
                     <div class="coming-img">
-                        <img src="images/force-man.png" alt="Force Man">
-                    </div>
-                    <div class="coming-info">
-                        <h3>Force Man</h3>
-                        <span class="coming-badge">Releasing Soon</span>
-                        <p>“E Don Tire Soldier” is for every hustler out there, because every hustler is a soldier. Most of the things we were taught about life are not always true; many times, they are only a mere glimpse of the battles we will eventually face. But nevertheless… e don tire soldier.</p>
-                        <div class="coming-btns">
-                            <audio id="preview-force-man" src="songs/Force Man By Bl4ameless.mp3"></audio>
-                            <button class="btn btn-outline" onclick="togglePreview('preview-force-man', this)">Play Preview</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="coming-card">
-                    <div class="coming-img">
                         <img src="images/Next Drop.png" alt="Next Drop">
                     </div>
                     <div class="coming-info">
@@ -1122,7 +1108,27 @@
         <h2 class="section-title">My Music</h2>
         <div class="music-grid">
 
-            <!-- Song 1: RELATBLE -->
+            <!-- Song 1: Force Man -->
+            <div class="music-card">
+                <div class="music-img">
+                    <img src="images/force-man.png" alt="Force Man">
+                </div>
+                <div class="music-info">
+                    <h3>Force Man</h3>
+                    <p>Released 2026</p>
+                    <div class="music-player">
+                        <audio id="song0" src="songs/forceman.mp3"></audio>
+                        <input type="range" id="seek0" value="0" min="0" max="100" class="seek-bar">
+                        <span>0:00</span>
+                        <div class="play-btn" onclick="togglePlay('song0', this)">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <a href="songs/forceman.mp3" download class="download-btn">Download Song</a>
+                </div>
+            </div>
+
+            <!-- Song 2: RELATBLE -->
             <div class="music-card relatable">
                 <div class="music-img">
                     <img src="images/relatable.png" alt="RELATBLE">
@@ -1142,7 +1148,7 @@
                 </div>
             </div>
 
-            <!-- Song 2: Ijaw Boy -->
+            <!-- Song 3: Ijaw Boy -->
             <div class="music-card">
                 <div class="music-img">
                     <img src="images/Ijaw boy.jpg" alt="Ijaw Boy">
